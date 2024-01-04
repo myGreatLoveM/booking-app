@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className='bg-blue-800 py-10'>
-      <div className='w-[90%] sm:w-[80%] md:w-[65%] lg:w-[55%] mx-auto flex justify-between items-center gap-4'>
+      <div className='w-[90%] sm:w-[80%] md:w-[65%] lg:w-[60%] mx-auto flex justify-between items-center gap-4'>
         <span className='text-2xl sm:text-3xl text-white font-bold tracking-tight'>
           Booking.com
         </span>
