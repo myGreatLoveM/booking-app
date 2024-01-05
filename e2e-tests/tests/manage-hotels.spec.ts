@@ -38,18 +38,20 @@ test('shoul allow user to add a hotel', async ({ page }) => {
     path.join(__dirname, 'files', '2.png'),
   ])
 
-  await page.getByRole('button', {name: 'Save'}).click()
+  await page.getByRole('button', { name: 'Save' }).click()
   await expect(page.getByText('Hotel Saved!')).toBeVisible()
 })
 
-test('should display all hotels', async ({page}) => {
+test('should display all hotels', async ({ page }) => {
   await page.goto(`${UI_URL}/my-hotels`)
 
-  await expect(page.getByRole('heading', {name: 'My Hotels'})).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'My Hotels' })).toBeVisible()
 
-  await expect(page.getByRole('link', {name: 'Add Hotel'})).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Add Hotel' })).toBeVisible()
 
-  await expect(page.getByRole('heading', {name: 'test hotel'}).first()).toBeVisible()
+  await expect(
+    page.getByRole('heading', { name: 'test hotel' }).first()
+  ).toBeVisible()
   await expect(
     page.locator(':has-text("Lorem ipsum dolor sit amet")').first()
   ).toBeVisible()
@@ -63,4 +65,10 @@ test('should display all hotels', async ({page}) => {
   await expect(
     page.getByRole('link', { name: 'View Details' }).first()
   ).toBeVisible()
+})
+
+test('should able to update existing hotel', async ({ page }) => {
+  await page.goto(`${UI_URL}/my-hotels`)
+
+  await expect(page.getByRole('heading', { name: 'My Hotels' })).toBeVisible()
 })
